@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Railway track pridection</title>
+
+<!-- Boostrap Css Start-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+<!-- Boostrap Css End-->
+<!-- Boostrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<!-- Boostrap JS End-->
+
+
+</head>
+<style>
+.selectpicker{
+	padding: 7px;
+    background: aliceblue;
+    border-radius: 10px;
+	width:292px;
+}
+.submit{
+	width: 120px;
+    height: 35px;
+    background: #00dcff;
+    border: none;
+    color: #fff;
+
+}
+.map {
+	width:100%;
+	height:500px;
+}
+.search-place{
+	position: absolute;
+    top: 160px;
+    left: 27px;
+}
+h2{
+	margin-top: 1px;
+    margin-bottom: 1.5rem;
+}
+</style>
+
+<body>
+
+
+<div class="container-fluid">
+<div class="map-place" style="margin:30px; margin-top:1%;">
+
+    <div class="row">
+      	<h2>Railway track prediction tool</h2>
+
+      <br>
+    	<div class="col-lg-12">
+
+
+        <div class="search-place">
+            <form action="{% url 'location_page' %}" method="post">
+                {% csrf_token %}
+      	<select class="selectpicker"  data-live-search="true" name="location_select">
+            {% for i in city_list%}
+            <option>{{ i.location_name }}</option>
+            {% endfor %}
+<!--            <opytion data-subtext="Sen California">Geelong West</opytion>-->
+<!--            <option data-subtext="Sen Massacusetts">Newcomb/Moolap</option>-->
+<!--            <option data-subtext="Rep Alabama">City/Drum/Sth Geelong</option>-->
+<!--            <option data-subtext="Rep Alaska">Hamlyn Heights</option>-->
+<!--            <option data-subtext="Rep California" disabled="disabled">Bell Park</option>-->
+      	</select>
+      		<input class="submit" type="submit" value="Click">
+            </div>
+            </form>
+
+
+        <div class="map">
+            <iframe src={{map_location}}
+                    width="100%" height="500px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+
+        </div>
+     </div>
+
+  </div>
+ </div>
+</div>
+
+</body>
+
+</html>

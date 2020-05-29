@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form action="{% url 'add_page' %}" method="post">
+     {% csrf_token %}
+{{form}}
+      		<input class="submit" type="submit" value="Click">
+<!--https://maps.google.com/maps?q=school%2CBell%20park&t=&z=13&ie=UTF8&iwloc=&output=embed"-->
+ </form>
+</body>
+</html>
