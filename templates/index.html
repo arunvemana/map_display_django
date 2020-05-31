@@ -72,6 +72,7 @@ margin-top: 1px;
                     <form action="{% url 'location_page' %}" method="post" style="float:left;">
                         {% csrf_token %}
                     <select class="selectpicker"  data-live-search="true" name="location_select">
+                        <option>-- Search Current Train Stations --</option>
                         {% for i in city_list%}
                         <option {% if  i.location_name == selected_current_name %}selected="selected" {% endif %}>
                             {{ i.location_name }}
@@ -93,6 +94,8 @@ margin-top: 1px;
                         <form action="{% url 'predict_location_page' %}" method="post" style="float:right;">
                             {% csrf_token %}
                     <select class="selectpicker"  data-live-search="true" name="predict_location_select">
+                                                    <option>-- Search Predict Train Stations --</option>
+
                         {% for i in predict_map_list%}
                         <option {% if  i.location_name == selected_predict_name %}selected="selected" {% endif %}>
                             {{ i.location_name }}
