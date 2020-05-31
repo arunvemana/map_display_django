@@ -67,9 +67,9 @@ margin-top: 1px;
       <br>
      <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="search-place">
-                    <form action="{% url 'location_page' %}" method="post" style="float:right;">
+                    <form action="{% url 'location_page' %}" method="post" style="float:left;">
                         {% csrf_token %}
                     <select class="selectpicker"  data-live-search="true" name="location_select">
                         {% for i in city_list%}
@@ -86,7 +86,7 @@ margin-top: 1px;
                   </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="search-place-left">
                         <form action="{% url 'predict_location_page' %}" method="post" style="float:right;">
                             {% csrf_token %}
