@@ -73,7 +73,9 @@ margin-top: 1px;
                         {% csrf_token %}
                     <select class="selectpicker"  data-live-search="true" name="location_select">
                         {% for i in city_list%}
-                        <option>{{ i.location_name }}</option>
+                        <option {% if  i.location_name == selected_current_name %}selected="selected" {% endif %}>
+                            {{ i.location_name }}
+                        </option>
                         {% endfor %}
             <!--<opytion data-subtext="Sen California">Geelong West</opytion>-->
             <!--<option data-subtext="Sen Massacusetts">Newcomb/Moolap</option>-->
@@ -92,7 +94,9 @@ margin-top: 1px;
                             {% csrf_token %}
                     <select class="selectpicker"  data-live-search="true" name="predict_location_select">
                         {% for i in predict_map_list%}
-                        <option>{{ i.location_name }}</option>
+                        <option {% if  i.location_name == selected_predict_name %}selected="selected" {% endif %}>
+                            {{ i.location_name }}
+                        </option>
                         {% endfor %}
             <!--            <opytion data-subtext="Sen California">Geelong West</opytion>-->
             <!--            <option data-subtext="Sen Massacusetts">Newcomb/Moolap</option>-->

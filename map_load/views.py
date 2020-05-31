@@ -23,7 +23,7 @@ def index(request):
 
         return render(request, 'index.html',
                       context={'city_list': city_list, 'map_location': City_value.map_coordinates_link.strip('"'),
-                               'predict_map_list': predict_city_list})
+                               'predict_map_list': predict_city_list,'selected_current_name':var})
 
 
 def predit_map_load(request):
@@ -41,7 +41,7 @@ def predit_map_load(request):
         predict_city_list = predict_Map_List.objects.all().values('location_name')
         return render(request, 'index.html', context={'predict_map_list': predict_city_list,
                                                       'map_location': predict_city_value.map_coordinates_link.strip(
-                                                          '"'), 'city_list': city_list})
+                                                          '"'), 'city_list': city_list,'selected_predict_name':var})
 
 
 def add_map(request):
