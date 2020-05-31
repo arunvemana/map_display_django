@@ -45,6 +45,10 @@
     top: 160px;
     left: 27px;
 }
+.search-place-left{
+    top: 160px;
+    left: 230px;
+}
 h2{
 	margin-top: 1px;
     margin-bottom: 1.5rem;
@@ -62,24 +66,47 @@ h2{
 
       <br>
     	<div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="search-place">
+                    <form action="{% url 'location_page' %}" method="post">
+                        {% csrf_token %}
+                <select class="selectpicker"  data-live-search="true" name="location_select">
+                    {% for i in city_list%}
+                    <option>{{ i.location_name }}</option>
+                    {% endfor %}
+        <!--            <opytion data-subtext="Sen California">Geelong West</opytion>-->
+        <!--            <option data-subtext="Sen Massacusetts">Newcomb/Moolap</option>-->
+        <!--            <option data-subtext="Rep Alabama">City/Drum/Sth Geelong</option>-->
+        <!--            <option data-subtext="Rep Alaska">Hamlyn Heights</option>-->
+        <!--            <option data-subtext="Rep California" disabled="disabled">Bell Park</option>-->
+                </select>
+                    <input class="submit" type="submit" value="Click">
 
+                    </form>
+                        </div>
+                </div>
 
-        <div class="search-place">
-            <form action="{% url 'location_page' %}" method="post">
-                {% csrf_token %}
-      	<select class="selectpicker"  data-live-search="true" name="location_select">
-            {% for i in city_list%}
-            <option>{{ i.location_name }}</option>
-            {% endfor %}
-<!--            <opytion data-subtext="Sen California">Geelong West</opytion>-->
-<!--            <option data-subtext="Sen Massacusetts">Newcomb/Moolap</option>-->
-<!--            <option data-subtext="Rep Alabama">City/Drum/Sth Geelong</option>-->
-<!--            <option data-subtext="Rep Alaska">Hamlyn Heights</option>-->
-<!--            <option data-subtext="Rep California" disabled="disabled">Bell Park</option>-->
-      	</select>
-      		<input class="submit" type="submit" value="Click">
+                <div class="col-md-4">
+                    <div class="search-place-left">
+                        <form action="{% url 'predict_location_page' %}" method="post">
+                            {% csrf_token %}
+                    <select class="selectpicker"  data-live-search="true" name="predict_location_select">
+                        {% for i in predict_map_list%}
+                        <option>{{ i.location_name }}</option>
+                        {% endfor %}
+            <!--            <opytion data-subtext="Sen California">Geelong West</opytion>-->
+            <!--            <option data-subtext="Sen Massacusetts">Newcomb/Moolap</option>-->
+            <!--            <option data-subtext="Rep Alabama">City/Drum/Sth Geelong</option>-->
+            <!--            <option data-subtext="Rep Alaska">Hamlyn Heights</option>-->
+            <!--            <option data-subtext="Rep California" disabled="disabled">Bell Park</option>-->
+                    </select>
+                        <input class="submit" type="submit" value="predict">
+                        </form>
+                    </div>
             </div>
-            </form>
+            </div>
+
 
 
         <div class="map">

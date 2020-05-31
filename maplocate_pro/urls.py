@@ -19,5 +19,6 @@ from map_load import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='location_page'),
+    path('predict/',views.predit_map_load,name='predict_location_page'),
     path('add/',views.add_map,name='add_page')
 ]
